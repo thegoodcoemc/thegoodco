@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Good People | Sustainability & Well-being</title>
+  <style>
+    /* 1. GLOBAL SETTINGS & COLORS */
+    :root {
+      --bg-color: #FFD3B5;    /* (2) Your sandy beige */
+      --accent-pink: #FF8C94;  /* (1) Nice pink for accents */
+      --soft-pink: #FFAAA6;    /* For borders/secondary bits */
+      --text-dark: #121111;    /* High contrast black */
+      --font-main: 'Courier New', Courier, monospace; /* (1) Requested font */
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* 2. NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--text-dark); /* (1) High contrast top words */
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* 3. HERO SECTION (With your 2 images) */
+    .hero-section {
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2%;
+      gap: 20px;
+    }
+
+    .hero-left, .hero-right {
+      flex: 1;
+      height: 70vh;
+    }
+
+    .hero-left img, .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Keeps images from stretching */
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .hero-center {
+      flex: 0 0 300px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .hero-star {
+      font-size: 2rem;
+      color: var(--accent-pink);
+    }
+
+    .hero-btn {
+      background: transparent;
+      border: 2px solid var(--text-dark);
+      padding: 12px 24px;
+      font-family: var(--font-main);
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      width: 100%;
+      border-radius: 50px;
+    }
+
+    .hero-btn:hover {
+      background: var(--text-dark);
+      color: white;
+    }
+
+    /* 4. ABOUT SECTION (4) - Scaled Smaller */
+    .about-section {
+      padding: 80px 5%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .about-left img {
+      width: 100px; /* Scaled down WhatsApp logo */
+      height: auto;
+    }
+
+    .about-right h2 { margin-top: 0; color: var(--accent-pink); }
+    .about-right a { color: var(--accent-pink); text-decoration: none; font-weight: bold; }
+
+    /* 5. PROJECTS GRID (5a) - Uniform Format */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      padding: 40px 5%;
+    }
+
+    .project-card {
+      position: relative;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      border: 2px solid var(--soft-pink); /* (5) Border for contrast */
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover { transform: translateY(-5px); }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* (5) Overlay with high contrast */
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-top: 4px solid var(--accent-pink);
+    }
+
+    .overlay h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+    .overlay p { margin: 0; font-size: 0.85rem; line-height: 1.4; }
+
+    /* FOOTER */
+    .site-footer {
+      background: #fff;
+      padding: 50px 5% 20px;
+      margin-top: 100px;
+      border-top: 2px solid var(--soft-pink);
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero-section { flex-direction: column; height: auto; padding-top: 100px; }
+      .about-box { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" id="mainNav">
+    <div class="nav-logo">The Good People</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-left">
+      <img src="white.png" alt="Sustainability">
+    </div>
+
+    <div class="hero-center">
+      <button class="hero-btn" onclick="location.href='TGP.html'">The Good Place</button>
+      <div class="hero-star">✱</div>
+      <button class="hero-btn" onclick="location.href='TGC.html'">The Good Co.</button>
+    </div>
+
+    <div class="hero-right">
+      <img src="pink.png" alt="Crafting">
+    </div>
+  </section>
+
+  <section id="about" class="about-section reveal">
+    <div class="about-box">
+      <div class="about-left">
+        <img src="whatsapp-logo.png" alt="Contact">
+      </div>
+      <div class="about-right">
+        <h2>About Us</h2>
+        <p>We are a community-driven collective focusing on sustainability, mental health, and equity through upcycled projects.</p>
+        <a href="#">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">What We're Up To</h2>
+  <section id="projects" class="projects-grid reveal">
+    
+    <div class="project-card">
+      <img src="img/ps1.jpg" alt="Animal Activities">
+      <div class="overlay">
+        <h3>Animal-Assisted Activities</h3>
+        <p>Commissioned for SPED students focusing on emotional regulation.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/pttmgroup2.png" alt="Power To Mums">
+      <div class="overlay">
+        <h3>Power To The Mums</h3>
+        <p>Empowering mothers to generate sustainable income.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/sc3.png" alt="Combs">
+      <div class="overlay">
+        <h3>Recycled Plastic Combs</h3>
+        <p>Repurposing waste into beautiful self-care tools.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <h3>The Good People</h3>
+        <p>Creating meaningful projects for a better world.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="#">Home</a><br><a href="#">TGC</a><br><a href="#">TGP</a></p>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 40px; font-size: 0.8rem;">&copy; 2025 The Good People</p>
+  </footer>
+
+  <script>
+    // 1. Scroll Reveal Logic
+    window.addEventListener('scroll', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+
+      // 2. Navbar Background Toggle
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(255, 255, 255, 0.9)';
+      } else {
+        nav.style.background = 'transparent';
+      }
+    });
+  </script>
+</body>
+</html>
