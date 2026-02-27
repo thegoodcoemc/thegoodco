@@ -7,11 +7,11 @@
   <style>
     /* 1. GLOBAL SETTINGS & COLORS */
     :root {
-      --bg-color: #FFD3B5;    /* (2) Your sandy beige */
-      --accent-pink: #FF8C94;  /* (1) Nice pink for accents */
-      --soft-pink: #FFAAA6;    /* For borders/secondary bits */
-      --text-dark: #121111;    /* High contrast black */
-      --font-main: 'Courier New', Courier, monospace; /* (1) Requested font */
+      --bg-color: #FFD3B5;    
+      --accent-pink: #FF8C94;  
+      --soft-pink: #FFAAA6;    /* THIS IS YOUR NEW TARGET COLOR */
+      --text-dark: #121111;    
+      --font-main: 'Courier New', Courier, monospace; 
     }
 
     * { box-sizing: border-box; }
@@ -41,7 +41,7 @@
     .nav-logo {
       font-weight: bold;
       font-size: 1.4rem;
-      color: var(--text-dark); /* (1) High contrast top words */
+      color: var(--text-dark); 
     }
 
     .nav-links a {
@@ -52,7 +52,7 @@
       font-size: 0.9rem;
     }
 
-    /* 3. HERO SECTION (With your 2 images) */
+    /* 3. HERO SECTION */
     .hero-section {
       display: flex;
       height: 100vh;
@@ -70,7 +70,7 @@
     .hero-left img, .hero-right img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Keeps images from stretching */
+      object-fit: cover; 
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
@@ -106,7 +106,7 @@
       color: white;
     }
 
-    /* 4. ABOUT SECTION (4) - Scaled Smaller */
+    /* 4. ABOUT SECTION - Changed background from white to #FFAAA6 */
     .about-section {
       padding: 80px 5%;
       display: flex;
@@ -114,7 +114,7 @@
     }
 
     .about-box {
-      background: white;
+      background: var(--soft-pink); /* CHANGED */
       padding: 30px;
       border-radius: 20px;
       max-width: 700px;
@@ -125,14 +125,14 @@
     }
 
     .about-left img {
-      width: 100px; /* Scaled down WhatsApp logo */
+      width: 100px; 
       height: auto;
     }
 
     .about-right h2 { margin-top: 0; color: var(--accent-pink); }
     .about-right a { color: var(--accent-pink); text-decoration: none; font-weight: bold; }
 
-    /* 5. PROJECTS GRID (5a) - Uniform Format */
+    /* 5. PROJECTS GRID */
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -148,11 +148,11 @@
 
     .project-card {
       position: relative;
-      background: white;
+      background: var(--soft-pink); /* CHANGED */
       border-radius: 15px;
       overflow: hidden;
       aspect-ratio: 1/1;
-      border: 2px solid var(--soft-pink); /* (5) Border for contrast */
+      border: 2px solid var(--soft-pink); 
       transition: transform 0.3s ease;
     }
 
@@ -164,13 +164,13 @@
       object-fit: cover;
     }
 
-    /* (5) Overlay with high contrast */
+    /* Overlay - Changed background from white to #FFAAA6 */
     .overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: var(--soft-pink); /* CHANGED (Removed transparency for solid look) */
       padding: 20px;
       border-top: 4px solid var(--accent-pink);
     }
@@ -178,12 +178,12 @@
     .overlay h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
     .overlay p { margin: 0; font-size: 0.85rem; line-height: 1.4; }
 
-    /* FOOTER */
+    /* FOOTER - Changed background from white to #FFAAA6 */
     .site-footer {
-      background: #fff;
+      background: var(--soft-pink); /* CHANGED */
       padding: 50px 5% 20px;
       margin-top: 100px;
-      border-top: 2px solid var(--soft-pink);
+      border-top: 2px solid var(--accent-pink);
     }
 
     .footer-container {
@@ -277,7 +277,7 @@
         <p>Creating meaningful projects for a better world.</p>
       </div>
       <div>
-        <h3>Quick Links</h3>
+        <h3>Shortcuts</h3>
         <p><a href="#">Home</a><br><a href="#">TGC</a><br><a href="#">TGP</a></p>
       </div>
     </div>
@@ -285,7 +285,6 @@
   </footer>
 
   <script>
-    // 1. Scroll Reveal Logic
     window.addEventListener('scroll', () => {
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(el => {
@@ -294,10 +293,10 @@
         }
       });
 
-      // 2. Navbar Background Toggle
       const nav = document.getElementById('mainNav');
       if (window.scrollY > 50) {
-        nav.style.background = 'rgba(255, 255, 255, 0.9)';
+        // Changed navbar scroll background to your pink too!
+        nav.style.background = '#FFAAA6'; 
       } else {
         nav.style.background = 'transparent';
       }
