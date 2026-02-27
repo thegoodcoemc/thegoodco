@@ -9,7 +9,7 @@
     :root {
       --bg-color: #FFD3B5;    
       --accent-pink: #FF8C94;  
-      --soft-pink: #FFAAA6;    /* THIS IS YOUR NEW TARGET COLOR */
+      --soft-pink: #FFAAA6;    /* Your requested pink hex */
       --text-dark: #121111;    
       --font-main: 'Courier New', Courier, monospace; 
     }
@@ -106,7 +106,7 @@
       color: white;
     }
 
-    /* 4. ABOUT SECTION - Changed background from white to #FFAAA6 */
+    /* 4. ABOUT SECTION */
     .about-section {
       padding: 80px 5%;
       display: flex;
@@ -114,7 +114,7 @@
     }
 
     .about-box {
-      background: var(--soft-pink); /* CHANGED */
+      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
       padding: 30px;
       border-radius: 20px;
       max-width: 700px;
@@ -148,7 +148,7 @@
 
     .project-card {
       position: relative;
-      background: var(--soft-pink); /* CHANGED */
+      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
       border-radius: 15px;
       overflow: hidden;
       aspect-ratio: 1/1;
@@ -164,13 +164,12 @@
       object-fit: cover;
     }
 
-    /* Overlay - Changed background from white to #FFAAA6 */
     .overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--soft-pink); /* CHANGED (Removed transparency for solid look) */
+      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
       padding: 20px;
       border-top: 4px solid var(--accent-pink);
     }
@@ -178,12 +177,23 @@
     .overlay h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
     .overlay p { margin: 0; font-size: 0.85rem; line-height: 1.4; }
 
-    /* FOOTER - Changed background from white to #FFAAA6 */
+    /* 6. FOOTER STYLING */
     .site-footer {
-      background: var(--soft-pink); /* CHANGED */
+      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
       padding: 50px 5% 20px;
       margin-top: 100px;
       border-top: 2px solid var(--accent-pink);
+    }
+
+    /* HIGHLIGHT: New styles for the footer links (black & no underline) */
+    .site-footer a {
+      color: var(--text-dark); 
+      text-decoration: none;   
+      transition: 0.3s;
+    }
+
+    .site-footer a:hover {
+      color: var(--accent-pink);
     }
 
     .footer-container {
@@ -208,8 +218,7 @@
     <div class="nav-logo">The Good People</div>
     <nav class="nav-links">
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-    </nav>
+      <a href="#our-projects">Projects</a> </nav>
   </header>
 
   <section class="hero-section">
@@ -237,6 +246,31 @@
         <h2>About Us</h2>
         <p>We are a community-driven collective focusing on sustainability, mental health, and equity through upcycled projects.</p>
         <a href="#">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Our Projects</h2>
+  <section id="our-projects" class="projects-grid reveal">
+    <div class="project-card">
+      <img src="img/project1.jpg" alt="Project 1">
+      <div class="overlay">
+        <h3>Project One</h3>
+        <p>A description for your major established projects.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="img/project2.jpg" alt="Project 2">
+      <div class="overlay">
+        <h3>Project Two</h3>
+        <p>A description for your major established projects.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="img/project3.jpg" alt="Project 3">
+      <div class="overlay">
+        <h3>Project Three</h3>
+        <p>A description for your major established projects.</p>
       </div>
     </div>
   </section>
@@ -278,7 +312,11 @@
       </div>
       <div>
         <h3>Shortcuts</h3>
-        <p><a href="#">Home</a><br><a href="#">TGC</a><br><a href="#">TGP</a></p>
+        <p>
+          <a href="#">Home</a><br>
+          <a href="#">TGC</a><br>
+          <a href="#">TGP</a>
+        </p>
       </div>
     </div>
     <p style="text-align: center; margin-top: 40px; font-size: 0.8rem;">&copy; 2025 The Good People</p>
@@ -295,8 +333,7 @@
 
       const nav = document.getElementById('mainNav');
       if (window.scrollY > 50) {
-        // Changed navbar scroll background to your pink too!
-        nav.style.background = '#FFAAA6'; 
+        nav.style.background = '#FFAAA6'; // HIGHLIGHT: Navbar scroll color is now pink
       } else {
         nav.style.background = 'transparent';
       }
