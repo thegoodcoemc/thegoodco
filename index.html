@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Good People: Sustainability and Well-being Programmes // Sustainable Recycling and Upcycled Projects // Sustainability | Mental Health | Equity | Diversity and Inclusion // </title>
-  <meta property="og:image" content="assets/img/logo.png" />
-  <meta name="description" content="The Good People: Sustainability and Well-being Programmes // Sustainable Recycling and Upcycled Projects // Sustainability | Mental Health | Equity | Diversity and Inclusion // "/>
-  <meta property="og:title" content="The Good People: Sustainability and Well-being Programmes // Sustainable Recycling and Upcycled Projects // Sustainability | Mental Health | Equity | Diversity and Inclusion // " />
-  <meta property="og:description" content="The Good People: Sustainability and Well-being Programmes // Sustainable Recycling and Upcycled Projects // Sustainability | Mental Health | Equity | Diversity and Inclusion // "/>
-  <meta property="og:image" content="assets/img/logo.png" />
- 
+  <title>The Good People | Sustainability and Well-being</title>
+  
   <style>
     /* 1. GLOBAL SETTINGS & COLORS */
     :root {
       --bg-color: #FFD3B5;    
       --accent-pink: #FF8C94;  
-      --soft-pink: #FFAAA6;    /* Your requested pink hex */
+      --soft-pink: #FFAAA6;    
       --text-dark: #121111;    
       --font-main: 'Courier New', Courier, monospace; 
     }
@@ -120,7 +115,7 @@
     }
 
     .about-box {
-      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
+      background: var(--soft-pink); 
       padding: 30px;
       border-radius: 20px;
       max-width: 700px;
@@ -138,7 +133,7 @@
     .about-right h2 { margin-top: 0; color: var(--accent-pink); }
     .about-right a { color: var(--accent-pink); text-decoration: none; font-weight: bold; }
 
-    /* 5. PROJECTS GRID */
+    /* 5. PROJECTS GRID - Updated for 3x3 layout */
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -147,14 +142,15 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
+      /* HIGHLIGHT: Changed to exactly 3 columns */
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 20px;
       padding: 40px 5%;
     }
 
     .project-card {
       position: relative;
-      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
+      background: var(--soft-pink); 
       border-radius: 15px;
       overflow: hidden;
       aspect-ratio: 1/1;
@@ -175,23 +171,22 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
-      padding: 20px;
+      background: var(--soft-pink); 
+      padding: 15px; /* Sightly tighter padding for 3x3 */
       border-top: 4px solid var(--accent-pink);
     }
 
-    .overlay h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
-    .overlay p { margin: 0; font-size: 0.85rem; line-height: 1.4; }
+    .overlay h3 { margin: 0 0 5px 0; font-size: 1rem; }
+    .overlay p { margin: 0; font-size: 0.8rem; line-height: 1.3; }
 
     /* 6. FOOTER STYLING */
     .site-footer {
-      background: var(--soft-pink); /* HIGHLIGHT: Changed from white to pink */
+      background: var(--soft-pink); 
       padding: 50px 5% 20px;
       margin-top: 100px;
       border-top: 2px solid var(--accent-pink);
     }
 
-    /* HIGHLIGHT: New styles for the footer links (black & no underline) */
     .site-footer a {
       color: var(--text-dark); 
       text-decoration: none;   
@@ -212,7 +207,12 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 768px) {
+    /* MOBILE ADJUSTMENT: Go back to 1 column on small screens */
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
       .hero-section { flex-direction: column; height: auto; padding-top: 100px; }
       .about-box { flex-direction: column; text-align: center; }
     }
@@ -224,23 +224,18 @@
     <div class="nav-logo">The Good People</div>
     <nav class="nav-links">
       <a href="#about">About</a>
-      <a href="#our-projects">Projects</a> </nav>
+      <a href="#our-projects">Projects</a> 
+    </nav>
   </header>
 
   <section class="hero-section">
-    <div class="hero-left">
-     <!-- <img src="white.png" alt="Sustainability"> -->
-    </div>
-
+    <div class="hero-left"></div>
     <div class="hero-center">
       <button class="hero-btn" onclick="location.href='TGP.html'">The Good Place</button>
       <div class="hero-star">✱</div>
       <button class="hero-btn" onclick="location.href='TGC.html'">The Good Co.</button>
     </div>
-
-    <div class="hero-right">
-     <!-- <img src="pink.png" alt="Crafting"> -->
-    </div>
+    <div class="hero-right"></div>
   </section>
 
   <section id="about" class="about-section reveal">
@@ -258,90 +253,89 @@
 
   <h2 class="section-title">Our Initiatives</h2>
   <section id="our-projects" class="projects-grid reveal">
-    <div class="project-card">
-      <img src="img/project1.jpg" alt="Project 1">
-      <div class="overlay">
-        <h3>Power to the Mums</h3>
-        <p>Empowering mothers to generate sustainable income.</p>
-      </div>
-    </div>
-    <div class="project-card">
-      <img src="img/project2.jpg" alt="Project 2">
-      <div class="overlay">
-        <h3>Animal-Assisted Activities</h3>
-        <p>Commissioned for SPED students focusing on emotional regulation.</p>
-      </div>
-    </div>
-    <div class="project-card">
-      <img src="img/project3.jpg" alt="Project 3">
-      <div class="overlay">
-        <h3>Senior Engagements</h3>
-        <p>Well-being and sustainability engagement for seniors.</p>
-      </div>
-    </div>
+    <div class="project-card"><img src="img/project1.jpg" alt="1"><div class="overlay"><h3>Power to the Mums</h3><p>Empowering mothers to generate sustainable income.</p></div></div>
+    <div class="project-card"><img src="img/project2.jpg" alt="2"><div class="overlay"><h3>Animal-Assisted Activities</h3><p>Focusing on emotional regulation for SPED students.</p></div></div>
+    <div class="project-card"><img src="img/project3.jpg" alt="3"><div class="overlay"><h3>Senior Engagements</h3><p>Well-being engagement for seniors.</p></div></div>
   </section>
 
   <h2 class="section-title">What We're Up To</h2>
   <section id="projects" class="projects-grid reveal">
     
     <div class="project-card">
-      <img src="img/p1.jpg" alt="Coffee x Eco-friendly Binder Coaster">
+      <img src="img/p1.jpg" alt="Coffee">
       <div class="overlay">
-        <h3>Coffee x Eco-friendly Binder Coaster</h3>
-        <p>
-A commissioned project by a hospitality group to repurpose their operational waste</p>
+        <h3>Coffee x Eco Binder Coaster</h3>
+        <p>Repurposing operational waste for hospitality groups.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <img src="img/p2.png" alt="Recycled Plastic Combs">
+      <img src="img/p2.png" alt="Combs">
       <div class="overlay">
         <h3>Recycled Plastic Combs</h3>
-        <p>
-A commissioned project to promote self-care while being environmentally conscious</p>
+        <p>Promoting self-care while being eco-conscious.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <img src="img/p33.png" alt="Combs">
+      <img src="img/p33.png" alt="Tea">
       <div class="overlay">
         <h3>DIY Tea Bar</h3>
-        <p>
-A multi-sensory initiative to promote mindful living and health with our DIY tea kits</p>
-      </div>
-    </div>
-
-        <div class="project-card">
-      <img src="img/p1.jpg" alt="Coffee x Eco-friendly Binder Coaster">
-      <div class="overlay">
-        <h3>Coffee x Eco-friendly Binder Coaster</h3>
-        <p>
-A commissioned project by a hospitality group to repurpose their operational waste</p>
+        <p>Promoting mindful living with multi-sensory kits.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <img src="img/p2.png" alt="Recycled Plastic Combs">
+      <img src="img/p1.jpg" alt="Coffee">
       <div class="overlay">
-        <h3>Recycled Plastic Combs</h3>
-        <p>
-A commissioned project to promote self-care while being environmentally conscious</p>
+        <h3>Upcycled Crafts</h3>
+        <p>Transforming daily waste into beautiful art pieces.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <img src="img/p33.png" alt="Combs">
+      <img src="img/p2.png" alt="Combs">
       <div class="overlay">
-        <h3>DIY Tea Bar</h3>
-        <p>
-A multi-sensory initiative to promote mindful living and health with our DIY tea kits</p>
+        <h3>Green Workshops</h3>
+        <p>Educational sessions on urban sustainability.</p>
       </div>
     </div>
-    
+
+    <div class="project-card">
+      <img src="img/p33.png" alt="Tea">
+      <div class="overlay">
+        <h3>Community Gardens</h3>
+        <p>Building green spaces for neighborhood well-being.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/p1.jpg" alt="Project 7">
+      <div class="overlay">
+        <h3>Plastic Precious</h3>
+        <p>Turning single-use plastic into durable furniture.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/p2.png" alt="Project 8">
+      <div class="overlay">
+        <h3>Wellness Pop-ups</h3>
+        <p>Bringing mental health resources to public spaces.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/p33.png" alt="Project 9">
+      <div class="overlay">
+        <h3>The Good Swap</h3>
+        <p>A zero-waste initiative for pre-loved items.</p>
+      </div>
+    </div>
 
   </section>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <div class="footer-container">
       <div>
         <h3>The Good People</h3>
@@ -362,7 +356,7 @@ A multi-sensory initiative to promote mindful living and health with our DIY tea
         Corporate | Media | Partnerships | Everything - Planet, Animals, Humans
       </p>
       <p style="margin: 5px 0;">
-        <a href="mailto:hello@thegoodearthschool.org" style="color: #121111; text-decoration: none;">hello@thegoodpeople.sg</a>
+        <a href="mailto:hello@thegoodpeople.sg" style="color: #121111; text-decoration: none;">hello@thegoodpeople.sg</a>
       </p>
     </div>
 
@@ -380,7 +374,7 @@ A multi-sensory initiative to promote mindful living and health with our DIY tea
 
       const nav = document.getElementById('mainNav');
       if (window.scrollY > 50) {
-        nav.style.background = '#FFAAA6'; // HIGHLIGHT: Navbar scroll color is now pink
+        nav.style.background = '#FFAAA6'; 
       } else {
         nav.style.background = 'transparent';
       }
